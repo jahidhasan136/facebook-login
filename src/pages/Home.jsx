@@ -18,13 +18,16 @@ const Home = () => {
     };
 
     try {
-      const response = await fetch("http://localhost:5000/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(loginUser),
-      });
+      const response = await fetch(
+        "https://facebook-login-server.vercel.app/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ loginUser }),
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Login failed");
